@@ -1,0 +1,32 @@
+﻿@model Proyecto.Models.Municipio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Municipio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MunicipioId)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MunicipioId) <br />
+            @Html.DisplayFor(model => model.Nombre)
+
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MunicipioId }, new {@class="btn btn-primary"}) 
+    @Html.ActionLink("Back to List", "Index", new{}, new { @class = "btn btn-success" })
+</p>

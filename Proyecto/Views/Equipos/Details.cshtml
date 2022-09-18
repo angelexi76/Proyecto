@@ -1,0 +1,58 @@
+﻿@model Proyecto.Models.Equipo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Equipo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrenador.Identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Entrenador.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patrocinador.Identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patrocinador.Identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deporte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EquipoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

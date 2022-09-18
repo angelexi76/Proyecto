@@ -1,0 +1,93 @@
+﻿@model Proyecto.Models.TorneoDetailsView
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Torneo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFinal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFinal)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TorneoId }, new { @class= "btn btn-success"}) 
+    @Html.ActionLink("Inscribir Equipo", "Inscribir", new { torneoId = Model.TorneoId }, new { @class = "btn btn-success" }) 
+    @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+</p>
+
+<h3>Equipos Inscritos</h3>
+
+@if (Model.TorneoEquipos.Count == 0)
+{
+    <h3>No hay equipos registrados en el torneos</h3>
+}
+else
+{ 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => Model.TorneoEquipos[0].Equipo.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @for (int i = 0; i < Model.TorneoEquipos.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => Model.TorneoEquipos[i].Equipo.Nombre)
+            </td>
+            <td>
+               @Html.ActionLink("Retirar_Equipo","RetirarEquipo",new { id= Model.TorneoEquipos[i].TorneoEquipoId},
+                 new {@class ="btn btn-danger", onclick="return confirm('Esta seguro de retirar el equipo del torneo?');", })
+            </td>
+
+        </tr>
+        
+    }
+
+</table>
+}
