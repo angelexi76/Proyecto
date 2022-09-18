@@ -1,0 +1,16 @@
+input#gold(type="radio", name="metal", checked)
+label(for="gold") GOLD
+input#silver(type="radio", name="metal")
+label(for="silver") SILVER
+input#bronze(type="radio", name="metal")
+label(for="bronze") BRONZE
+.container
+	.rings
+		- for (var x = 1; x < 6; x++) 
+			.ring
+				- for (var y = 1; y < 21; y++) 
+					span
+	.rings
+		- for (var x = 1; x < 6; x++) 
+			.ring
+
